@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.routes.js";
+import messageRoutes from "./routes/message.routes.js";
 import connectToMongoDB from "./db/connectionToMongoDB.js";
 const app = express();
 dotenv.config();
@@ -13,6 +14,7 @@ app.get("/", () => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/messages", messageRoutes);
 
 app.listen(5000, () => {
   connectToMongoDB();
