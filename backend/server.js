@@ -11,8 +11,8 @@ dotenv.config();
 app.use(express.json()); // to parse the incoming requests with JSON payloads (from req.body)
 app.use(cookieParser());
 
-app.get("/", () => {
-  resizeBy.send("hello ");
+app.get("/", (req, res) => {
+  res.send("hello ");
 });
 
 app.use("/api/auth", authRoutes);
